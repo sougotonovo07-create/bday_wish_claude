@@ -1,0 +1,142 @@
+/* ============================================================
+   page3.css — Love Letter Page Styles
+   ============================================================ */
+
+.page3-body {
+  background: linear-gradient(155deg, #fff8fa 0%, #ffe8f0 50%, #f8eaff 100%);
+  min-height: 100vh;
+  padding-top: 70px;
+}
+
+/* ---- Petals ---- */
+.petals-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  top: -40px;
+  font-size: 1.2rem;
+  opacity: 0.7;
+  animation: petalFall linear infinite;
+  pointer-events: none;
+}
+
+@keyframes petalFall {
+  0%   { transform: translateY(-40px) rotate(0deg) translateX(0); opacity: 0.8; }
+  100% { transform: translateY(110vh) rotate(360deg) translateX(40px); opacity: 0; }
+}
+
+/* ---- Letter Wrapper ---- */
+.letter-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 6rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.envelope-deco {
+  font-size: 2.5rem;
+  margin-bottom: 0.6rem;
+  display: block;
+  animation: float 3s ease-in-out infinite;
+}
+
+.letter-page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+}
+
+/* ---- Letter Card ---- */
+.letter-card {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(255, 182, 193, 0.35);
+  border-radius: 24px;
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 5vw, 3.5rem);
+  box-shadow: 0 10px 40px rgba(255, 133, 161, 0.15);
+  position: relative;
+  text-align: left;
+}
+
+.letter-seal {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  background: white;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px var(--shadow);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Decorative ruled lines (optional visual) */
+.letter-lines {
+  position: absolute;
+  inset: 3.5rem 1.5rem 1.5rem;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent calc(2.2rem - 1px),
+    rgba(255, 182, 193, 0.18) calc(2.2rem - 1px),
+    rgba(255, 182, 193, 0.18) 2.2rem
+  );
+  pointer-events: none;
+  border-radius: 10px;
+}
+
+.letter-content { position: relative; z-index: 1; }
+
+.letter-salutation {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.6rem;
+  color: var(--pink-deep);
+  margin-bottom: 1.2rem;
+}
+
+.letter-body p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--text-dark);
+  margin-bottom: 1.1rem;
+  text-align: justify;
+}
+
+.letter-closing {
+  font-style: italic;
+  color: var(--text-mid);
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.letter-signature {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  color: var(--pink-deep);
+  margin-top: 0.3rem;
+}
+
+/* ---- CTA ---- */
+.letter-cta {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .letter-card { padding: 2rem 1.2rem; }
+  .letter-body p { font-size: 0.95rem; }
+}

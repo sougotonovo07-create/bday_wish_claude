@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Surprise 🎁</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/page4.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+</head>
+<body class="page4-body">
+
+  <div class="balloons-container" id="balloonsContainer"></div>
+
+  <!-- Nav -->
+  <nav class="top-nav">
+    <a href="letter.html" class="nav-back">← Letter</a>
+    <span class="nav-title">Surprise!</span>
+    <a href="final.html" class="nav-next">Final →</a>
+  </nav>
+
+  <!-- Before click -->
+  <div class="surprise-wrapper" id="beforeReveal">
+    <p class="surprise-pre">Something special is waiting for you...</p>
+    <h2 class="surprise-title">Click the Gift Box!</h2>
+    <div class="gift-box" id="giftBox" onclick="openGift()">
+      <div class="gift-lid" id="giftLid">
+        <div class="gift-bow">🎀</div>
+      </div>
+      <div class="gift-body">
+        <div class="gift-ribbon-h"></div>
+        <div class="gift-shine"></div>
+      </div>
+    </div>
+    <p class="gift-hint">✨ tap me ✨</p>
+  </div>
+
+  <!-- After click (hidden initially) -->
+  <div class="reveal-wrapper hidden" id="afterReveal">
+    <div class="reveal-card">
+      <div class="cake-emoji">🎂</div>
+      <h2 class="reveal-title">Happy Birthday,<br/><span class="reveal-name">Bhumika!</span></h2>
+      <p class="reveal-msg">
+        You are the most beautiful part of my life.<br/>
+        Happy Birthday, my love ❤️
+      </p>
+      <div class="emoji-row">🎉 🎊 🎈 🎁 🌸 💕 ✨</div>
+      <a href="final.html" class="cta-button" style="margin-top:2rem;">See the Final Page 💫</a>
+    </div>
+  </div>
+
+  <!-- Music Player -->
+  <div class="music-player" id="musicPlayer">
+    <audio id="bgMusic" loop>
+      <source src="music/birthday-song.mp3" type="audio/mpeg"/>
+    </audio>
+    <button class="music-btn" id="musicToggle" onclick="toggleMusic()">🎵</button>
+    <span class="music-label">Music</span>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    function openGift() {
+      const box = document.getElementById('giftBox');
+      const lid = document.getElementById('giftLid');
+      const before = document.getElementById('beforeReveal');
+      const after = document.getElementById('afterReveal');
+
+      // Animate box
+      box.classList.add('shaking');
+      lid.classList.add('lid-open');
+
+      setTimeout(() => {
+        before.classList.add('fade-out');
+        setTimeout(() => {
+          before.classList.add('hidden');
+          after.classList.remove('hidden');
+          after.classList.add('fade-in');
+          launchConfetti();
+          createBalloons();
+          // Auto-play music
+          const music = document.getElementById('bgMusic');
+          if (music.paused) { music.play(); updateMusicBtn(true); }
+        }, 600);
+      }, 800);
+    }
+
+    function launchConfetti() {
+      const colors = ['#ffb6c1','#ffc0cb','#ff69b4','#dda0dd','#e6e6fa','#fff0f5','#ff85a1'];
+      const end = Date.now() + 3000;
+      (function frame() {
+        confetti({ particleCount: 6, angle: 60, spread: 55, origin: { x: 0 }, colors });
+        confetti({ particleCount: 6, angle: 120, spread: 55, origin: { x: 1 }, colors });
+        if (Date.now() < end) requestAnimationFrame(frame);
+      })();
+      // Heart confetti burst
+      setTimeout(() => {
+        confetti({ particleCount: 80, spread: 120, origin: { y: 0.6 }, colors, shapes:['circle'] });
+      }, 1000);
+    }
+
+    function createBalloons() {
+      const container = document.getElementById('balloonsContainer');
+      const balloonEmojis = ['🎈','🎈','🎈','🎊','💕','🎉'];
+      for (let i = 0; i < 12; i++) {
+        const b = document.createElement('div');
+        b.className = 'balloon-float';
+        b.textContent = balloonEmojis[Math.floor(Math.random() * balloonEmojis.length)];
+        b.style.left = Math.random() * 100 + 'vw';
+        b.style.animationDuration = (3 + Math.random() * 4) + 's';
+        b.style.animationDelay = Math.random() * 2 + 's';
+        b.style.fontSize = (1.5 + Math.random() * 1.5) + 'rem';
+        container.appendChild(b);
+      }
+    }
+  </script>
+</body>
+</html>

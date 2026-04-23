@@ -1,0 +1,197 @@
+/* ============================================================
+   page5.css — Final / Forever Page Styles
+   ============================================================ */
+
+.page5-body {
+  background: linear-gradient(160deg, #fff0f5 0%, #ffe8f4 35%, #f0e4ff 100%);
+  min-height: 100vh;
+  padding-top: 70px;
+}
+
+.fireworks-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---- Wrapper ---- */
+.final-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 6rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* ---- Countdown ---- */
+.countdown-pre {
+  font-size: 0.82rem;
+  color: var(--pink);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.countdown-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+}
+
+.countdown-grid {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.count-box {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 182, 193, 0.35);
+  border-radius: 18px;
+  padding: 1.2rem 1.5rem;
+  min-width: 90px;
+  box-shadow: 0 6px 24px var(--shadow);
+}
+
+.count-box span {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  color: var(--pink-deep);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.count-box label {
+  font-size: 0.7rem;
+  color: var(--text-light);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ---- Birthday Section ---- */
+.bday-emoji {
+  font-size: 3rem;
+  margin-bottom: 0.8rem;
+  animation: float 2s ease-in-out infinite;
+}
+
+.bday-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: var(--text-dark);
+  margin-bottom: 0.6rem;
+}
+
+.bday-sub {
+  color: var(--text-mid);
+  font-style: italic;
+  font-size: 1rem;
+}
+
+/* ---- Final Message Card ---- */
+.final-message-card {
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(255, 182, 193, 0.35);
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 10px 40px rgba(255, 133, 161, 0.15);
+}
+
+.final-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  line-height: 1.75;
+  color: var(--text-dark);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.final-sub {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+}
+
+/* ---- Love Button ---- */
+.love-btn-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.love-button {
+  position: relative;
+  padding: 1rem 3rem;
+  background: linear-gradient(135deg, #ff85a1, #e05c80);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.15rem;
+  font-family: 'Playfair Display', serif;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(224, 92, 128, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.love-button:hover {
+  transform: scale(1.06) translateY(-2px);
+  box-shadow: 0 12px 40px rgba(224, 92, 128, 0.5);
+}
+
+.love-btn-glow {
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 60%);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.love-button.btn-clicked {
+  animation: pulse 0.4s ease;
+}
+
+/* ---- Forever Reveal ---- */
+.forever-reveal {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.forever-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2rem, 7vw, 3.5rem);
+  color: var(--pink-deep);
+  margin-bottom: 0.5rem;
+}
+
+.forever-emoji {
+  font-size: 1.8rem;
+  letter-spacing: 0.2em;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ---- Restart ---- */
+.restart-section { padding-bottom: 1rem; }
+
+.restart-link {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+.restart-link:hover { color: var(--pink); }
+
+@media (max-width: 480px) {
+  .count-box { min-width: 72px; padding: 1rem; }
+  .count-box span { font-size: 1.8rem; }
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Memories 💕</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/page2.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
+  <!-- Swiper.js -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+<body class="page2-body">
+
+  <!-- Nav -->
+  <nav class="top-nav">
+    <a href="index.html" class="nav-back">← Home</a>
+    <span class="nav-title">Our Memories</span>
+    <a href="letter.html" class="nav-next">Letter →</a>
+  </nav>
+
+  <div class="gallery-wrapper">
+    <div class="section-header">
+      <p class="section-pre">✨ A walk through time</p>
+      <h2 class="section-title">Our Beautiful Memories</h2>
+      <p class="section-sub">Every picture tells a story. Our story. 💕</p>
+    </div>
+
+    <!-- Swiper Carousel -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+
+        <!-- === SLIDE 1 === -->
+        <!-- To add your photo: replace the placeholder div with <img src="images/photo1.jpg" alt="Memory 1"/> -->
+        <div class="swiper-slide">
+          <div class="memory-card">
+            <div class="photo-frame">
+              <div class="photo-placeholder">
+                <span class="ph-icon">📸</span>
+                <span class="ph-text">photo1.jpg</span>
+              </div>
+              <!-- REPLACE ABOVE WITH: <img src="images/photo1.jpg" alt="Our first memory"/> -->
+            </div>
+            <div class="memory-caption">
+              <span class="caption-heart">❤️</span>
+              <p class="caption-text">Our first memory</p>
+              <p class="caption-sub">The beginning of something beautiful</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- === SLIDE 2 === -->
+        <div class="swiper-slide">
+          <div class="memory-card">
+            <div class="photo-frame">
+              <div class="photo-placeholder">
+                <span class="ph-icon">📸</span>
+                <span class="ph-text">photo2.jpg</span>
+              </div>
+              <!-- REPLACE ABOVE WITH: <img src="images/photo2.jpg" alt="My favorite smile"/> -->
+            </div>
+            <div class="memory-caption">
+              <span class="caption-heart">🌸</span>
+              <p class="caption-text">My favorite smile</p>
+              <p class="caption-sub">You light up every room you walk into</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- === SLIDE 3 === -->
+        <div class="swiper-slide">
+          <div class="memory-card">
+            <div class="photo-frame">
+              <div class="photo-placeholder">
+                <span class="ph-icon">📸</span>
+                <span class="ph-text">photo3.jpg</span>
+              </div>
+              <!-- REPLACE ABOVE WITH: <img src="images/photo3.jpg" alt="Forever us"/> -->
+            </div>
+            <div class="memory-caption">
+              <span class="caption-heart">💫</span>
+              <p class="caption-text">Forever us</p>
+              <p class="caption-sub">Every moment with you is a treasure</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- === ADD MORE SLIDES BELOW === -->
+        <!-- Copy a slide block above and change photo path, caption text -->
+
+        <div class="swiper-slide">
+          <div class="memory-card">
+            <div class="photo-frame">
+              <div class="photo-placeholder">
+                <span class="ph-icon">📸</span>
+                <span class="ph-text">photo4.jpg</span>
+              </div>
+            </div>
+            <div class="memory-caption">
+              <span class="caption-heart">🌷</span>
+              <p class="caption-text">Just us two</p>
+              <p class="caption-sub">My favorite place is wherever you are</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end swiper-wrapper -->
+
+      <!-- Navigation -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div><!-- end swiper -->
+
+    <!-- CTA -->
+    <div class="gallery-cta">
+      <a href="letter.html" class="cta-button">Read My Letter 💌</a>
+    </div>
+  </div>
+
+  <!-- Music Player -->
+  <div class="music-player" id="musicPlayer">
+    <audio id="bgMusic" loop>
+      <source src="music/birthday-song.mp3" type="audio/mpeg"/>
+    </audio>
+    <button class="music-btn" id="musicToggle" onclick="toggleMusic()">🎵</button>
+    <span class="music-label">Music</span>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    const swiper = new Swiper('.mySwiper', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 30,
+        stretch: 0,
+        depth: 120,
+        modifier: 1,
+        slideShadows: true,
+      },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      autoplay: { delay: 4000, disableOnInteraction: false },
+      loop: true,
+    });
+  </script>
+</body>
+</html>

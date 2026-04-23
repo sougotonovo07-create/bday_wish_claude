@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Forever Yours 💕</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/page5.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&family=Dancing+Script:wght@600&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+</head>
+<body class="page5-body">
+
+  <div class="fireworks-container" id="fireworksContainer"></div>
+
+  <!-- Nav -->
+  <nav class="top-nav">
+    <a href="surprise.html" class="nav-back">← Surprise</a>
+    <span class="nav-title">Forever</span>
+    <a href="index.html" class="nav-next">Home 🏠</a>
+  </nav>
+
+  <div class="final-wrapper">
+
+    <!-- Countdown OR Birthday Message -->
+    <div class="countdown-section" id="countdownSection">
+      <p class="countdown-pre">✨ Counting down to the most special day ✨</p>
+      <h2 class="countdown-title">Her Birthday is Coming!</h2>
+      <div class="countdown-grid" id="countdownGrid">
+        <div class="count-box"><span id="cd-days">00</span><label>Days</label></div>
+        <div class="count-box"><span id="cd-hours">00</span><label>Hours</label></div>
+        <div class="count-box"><span id="cd-mins">00</span><label>Minutes</label></div>
+        <div class="count-box"><span id="cd-secs">00</span><label>Seconds</label></div>
+      </div>
+    </div>
+
+    <!-- Birthday message (shown on 21 July) -->
+    <div class="bday-section hidden" id="bdaySection">
+      <div class="bday-emoji">🎂✨🎉</div>
+      <h2 class="bday-title">It's Your Special Day Today!</h2>
+      <p class="bday-sub">The whole universe is celebrating YOU right now 🌸</p>
+    </div>
+
+    <!-- Final romantic message -->
+    <div class="final-message-card">
+      <p class="final-quote">
+        "No matter how many birthdays come,<br/>
+        I want to celebrate every single one of them<br/>
+        with you, my love."
+      </p>
+      <p class="final-sub">Happy Birthday, Bhumika. I love you to the moon and back. 🌙</p>
+    </div>
+
+    <!-- Love Button -->
+    <div class="love-btn-section">
+      <button class="love-button" id="loveBtn" onclick="revealLove()">
+        <span class="love-btn-text">I Love You ❤️</span>
+        <div class="love-btn-glow"></div>
+      </button>
+
+      <div class="forever-reveal hidden" id="foreverReveal">
+        <div class="forever-text">Forever Yours ❤️</div>
+        <div class="forever-emoji">💍🌹✨💕🌸</div>
+      </div>
+    </div>
+
+    <!-- Back to start -->
+    <div class="restart-section">
+      <a href="index.html" class="restart-link">↩ Relive the surprise from the beginning</a>
+    </div>
+
+  </div>
+
+  <!-- Music Player -->
+  <div class="music-player" id="musicPlayer">
+    <audio id="bgMusic" loop>
+      <source src="music/birthday-song.mp3" type="audio/mpeg"/>
+    </audio>
+    <button class="music-btn" id="musicToggle" onclick="toggleMusic()">🎵</button>
+    <span class="music-label">Music</span>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    // ===== BIRTHDAY DATE: Change month/day if needed =====
+    // Month is 0-indexed: June=5, July=6
+    const BIRTHDAY_MONTH = 6; // July
+    const BIRTHDAY_DAY = 21;
+    // =====================================================
+
+    function updateCountdown() {
+      const now = new Date();
+      const year = now.getFullYear();
+      let bday = new Date(year, BIRTHDAY_MONTH, BIRTHDAY_DAY, 0, 0, 0);
+      if (now > bday) bday = new Date(year + 1, BIRTHDAY_MONTH, BIRTHDAY_DAY, 0, 0, 0);
+
+      // Check if today IS birthday
+      const isToday = now.getMonth() === BIRTHDAY_MONTH && now.getDate() === BIRTHDAY_DAY;
+      if (isToday) {
+        document.getElementById('countdownSection').classList.add('hidden');
+        document.getElementById('bdaySection').classList.remove('hidden');
+        launchFireworks();
+        return;
+      }
+
+      const diff = bday - now;
+      const days = Math.floor(diff / (1000*60*60*24));
+      const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+      const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+      const secs = Math.floor((diff % (1000*60)) / 1000);
+
+      document.getElementById('cd-days').textContent = String(days).padStart(2,'0');
+      document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+      document.getElementById('cd-mins').textContent = String(mins).padStart(2,'0');
+      document.getElementById('cd-secs').textContent = String(secs).padStart(2,'0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    function revealLove() {
+      const btn = document.getElementById('loveBtn');
+      const reveal = document.getElementById('foreverReveal');
+      btn.classList.add('btn-clicked');
+      reveal.classList.remove('hidden');
+      reveal.classList.add('reveal-animate');
+      launchFireworks();
+    }
+
+    function launchFireworks() {
+      const colors = ['#ffb6c1','#ff69b4','#ffd700','#ff85a1','#dda0dd','#e6e6fa'];
+      const duration = 4000;
+      const end = Date.now() + duration;
+      (function frame() {
+        confetti({ particleCount: 4, angle: 60, spread: 55, origin: { x: 0 }, colors });
+        confetti({ particleCount: 4, angle: 120, spread: 55, origin: { x: 1 }, colors });
+        if (Date.now() < end) requestAnimationFrame(frame);
+      })();
+    }
+  </script>
+</body>
+</html>
