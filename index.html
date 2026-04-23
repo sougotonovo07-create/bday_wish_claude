@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Bhumika 💕</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/page1.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet"/>
+  <!-- Typed.js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</head>
+<body class="page1-body">
+
+  <!-- Floating hearts background -->
+  <div class="hearts-container" id="heartsContainer"></div>
+
+  <!-- Landing Content -->
+  <div class="landing-wrapper">
+    <div class="landing-card">
+      <div class="sparkle-top">✨</div>
+      <p class="pre-title">A special surprise for</p>
+      <h1 class="main-title">Happy Birthday<br/><span class="name-highlight">Bhumika</span> <span class="heart-icon">❤️</span></h1>
+      <p class="typed-line"><span id="typed-text"></span></p>
+      <a href="gallery.html" class="cta-button">
+        <span>Open Your Surprise</span>
+        <div class="btn-sparkle">✨</div>
+      </a>
+      <p class="date-badge">🎂 21st July</p>
+    </div>
+  </div>
+
+  <!-- Music Player -->
+  <div class="music-player" id="musicPlayer">
+    <audio id="bgMusic" loop>
+      <source src="music/birthday-song.mp3" type="audio/mpeg"/>
+    </audio>
+    <button class="music-btn" id="musicToggle" onclick="toggleMusic()">🎵</button>
+    <span class="music-label">Music</span>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Typed.js animation
+    new Typed('#typed-text', {
+      strings: [
+        "A little surprise made with love just for you...",
+        "Because you deserve the whole world 🌸",
+        "Made with every bit of my heart 💕"
+      ],
+      typeSpeed: 45,
+      backSpeed: 25,
+      backDelay: 2000,
+      loop: true
+    });
+
+    // Generate floating hearts
+    generateHearts();
+  </script>
+</body>
+</html>

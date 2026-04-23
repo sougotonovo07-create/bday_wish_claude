@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A Letter For You 💌</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/page3.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet"/>
+</head>
+<body class="page3-body">
+
+  <!-- Floating rose petals -->
+  <div class="petals-container" id="petalsContainer"></div>
+
+  <!-- Nav -->
+  <nav class="top-nav">
+    <a href="gallery.html" class="nav-back">← Memories</a>
+    <span class="nav-title">My Letter</span>
+    <a href="surprise.html" class="nav-next">Surprise →</a>
+  </nav>
+
+  <div class="letter-wrapper">
+    <div class="envelope-deco">💌</div>
+    <h2 class="letter-page-title">A Letter From My Heart</h2>
+
+    <div class="letter-card">
+      <div class="letter-seal">❤️</div>
+      <div class="letter-lines"></div>
+
+      <div class="letter-content">
+        <p class="letter-salutation">Dear Bhumika,</p>
+
+        <!-- ===== EDIT THE LETTER BELOW ===== -->
+        <div class="letter-body" id="letterBody">
+          <p>From the day you came into my life, everything became more beautiful. The sky felt bluer, the mornings felt softer, and even the ordinary days felt like something worth celebrating — because you were in them.</p>
+
+          <p>I don't have the perfect words to tell you how much you mean to me. But I know this — you are the kind of person who makes the world a gentler place just by existing in it. Your laugh, your eyes, the way you care about everyone around you... I fall for you a little more every single day.</p>
+
+          <p>You've been my comfort on the hardest days, my joy on the brightest ones, and my home no matter where we are. Loving you has been the most beautiful thing that ever happened to me.</p>
+
+          <p>On your birthday, I just want you to know — you deserve every wish, every flower, every good thing the universe has to offer. I hope this year brings you more happiness than you can hold, more love than you imagined, and every dream you've kept quiet in your heart.</p>
+
+          <p>Thank you for choosing me. Thank you for being you. Thank you for making my life a love story I never want to stop telling.</p>
+        </div>
+        <!-- ===== END EDIT ===== -->
+
+        <p class="letter-closing">With all my love, always,</p>
+        <!-- Change "Your Name" to your actual name -->
+        <p class="letter-signature">Your person 💕</p>
+      </div>
+    </div>
+
+    <div class="letter-cta">
+      <a href="surprise.html" class="cta-button">Your Surprise Awaits 🎁</a>
+    </div>
+  </div>
+
+  <!-- Music Player -->
+  <div class="music-player" id="musicPlayer">
+    <audio id="bgMusic" loop>
+      <source src="music/birthday-song.mp3" type="audio/mpeg"/>
+    </audio>
+    <button class="music-btn" id="musicToggle" onclick="toggleMusic()">🎵</button>
+    <span class="music-label">Music</span>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    generatePetals();
+  </script>
+</body>
+</html>
